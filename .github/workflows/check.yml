@@ -8,4 +8,4 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: sleep 60
-      - run: test ! -f FAIL
+      - run: test "$GITHUB_EVENT_NAME" != merge_group || test ! -f FAIL_IN_QUEUE
